@@ -13,7 +13,7 @@
 	<artifactId>forest-common</artifactId>
 	<packaging>jar</packaging>
 	
-	<name>Forest Common</name>
+	<name>forest-common</name>
 	<url>http://guoshilin.cn</url>
 	<inceptionYear>2018-Now</inceptionYear>
 	

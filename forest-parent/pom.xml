@@ -14,7 +14,7 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
-	<name>Forest Parent</name>
+	<name>forest-parent</name>
 	<url>http://guoshilin.cn</url>
 	<inceptionYear>2018-Now</inceptionYear>
 	

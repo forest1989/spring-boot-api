@@ -8,7 +8,7 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
-	<name>Forest Root</name>
+	<name>forest-root</name>
 	<url>http://guoshilin.com</url>
 	<inceptionYear>2018-Now</inceptionYear>
 	
