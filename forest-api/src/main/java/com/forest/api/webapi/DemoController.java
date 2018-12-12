@@ -21,6 +21,7 @@ import com.forest.api.entity.Demo;
 import com.forest.api.log.Log4j2Utils;
 import com.forest.api.service.AppUserService;
 import com.forest.api.service.DemoService;
+import com.forest.api.service.clinet.DemoFeignService;
 import com.forest.common.jwt.api.TokenMgr;
 import com.forest.common.jwt.config.Constant;
 import com.forest.common.jwt.model.SubjectModel;
@@ -42,6 +43,10 @@ public class DemoController extends BaseController{
 
 	@Autowired
 	private DemoService demoService;
+	
+	@Autowired
+	private DemoFeignService demoFeignService;
+	
 	@Autowired
 	private AppUserService appUserService;
 	
@@ -55,8 +60,9 @@ public class DemoController extends BaseController{
     	log1.info("getBussinessLogger===日志测试");
     	log2.debug("getDBLogger===日志测试");
     	//Thread.sleep(1000000);
-    	Demo d = demoService.get(new Demo());
-        return new CommonResult(0000, d, "数据获取成功");
+    	String str = demoFeignService.helloService();
+    	//Demo d = demoService.get(new Demo());
+        return new CommonResult(0000, str, "数据获取成功");
     }
     
     @RequestMapping(value="/login", method= RequestMethod.POST)
