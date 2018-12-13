@@ -5,7 +5,6 @@ import java.util.Date;
 import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.forest.api.entity.User;
 import com.forest.api.webapi.sys.utils.UserUtils;
 import com.forest.common.utils.IdGen;
@@ -65,7 +64,7 @@ public abstract class DataEntity<T> extends BaseEntity<T> {
 		this.updateDate = new Date();
 	}
 	
-	@JsonIgnore
+	
 	public User getCreateBy() {
 		return createBy;
 	}
@@ -74,6 +73,7 @@ public abstract class DataEntity<T> extends BaseEntity<T> {
 		this.createBy = createBy;
 	}
 
+	
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	public Date getCreateDate() {
 		return createDate;
@@ -83,7 +83,7 @@ public abstract class DataEntity<T> extends BaseEntity<T> {
 		this.createDate = createDate;
 	}
 
-	@JsonIgnore
+	
 	public User getUpdateBy() {
 		return updateBy;
 	}
@@ -92,6 +92,7 @@ public abstract class DataEntity<T> extends BaseEntity<T> {
 		this.updateBy = updateBy;
 	}
 
+	
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	public Date getUpdateDate() {
 		return updateDate;
@@ -100,6 +101,7 @@ public abstract class DataEntity<T> extends BaseEntity<T> {
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
+
 
 	public String getDelFlag() {
 		return delFlag;

@@ -8,7 +8,6 @@ import java.io.Serializable;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.forest.common.config.Global;
 import com.forest.common.utils.StringUtils;
 
 /**
@@ -66,6 +65,7 @@ public abstract class BaseEntity<T> implements Serializable {
 	 * 设置为true后强制执行插入语句，ID不会自动生成，需从手动传入。
      * @return
      */
+	@JsonIgnore
 	public boolean getIsNewRecord() {
         return isNewRecord || StringUtils.isBlank(getId());
     }
@@ -76,14 +76,6 @@ public abstract class BaseEntity<T> implements Serializable {
 	 */
 	public void setIsNewRecord(boolean isNewRecord) {
 		this.isNewRecord = isNewRecord;
-	}
-
-	/**
-	 * 全局变量对象
-	 */
-	@JsonIgnore
-	public Global getGlobal() {
-		return Global.getInstance();
 	}
 	
     @Override

@@ -61,8 +61,8 @@ public class DemoController extends BaseController{
     	log2.debug("getDBLogger===日志测试");
     	//Thread.sleep(1000000);
     	String str = demoFeignService.helloService();
-    	//Demo d = demoService.get(new Demo());
-        return new CommonResult(0000, str, "数据获取成功");
+    	Demo d = demoService.get(new Demo());
+        return new CommonResult(0000, d, "数据获取成功");
     }
     
     @RequestMapping(value="/login", method= RequestMethod.POST)
@@ -78,7 +78,7 @@ public class DemoController extends BaseController{
 					// 生成TOKEN
 					SubjectModel sub = new SubjectModel(appUser.getId(), appUser.getLoginName());//用户信息
 					String token = TokenMgr.createJWT(IdGen.uuid(), Constant.JWT_ISS,TokenMgr.generalSubject(sub), Constant.JWT_TTL);
-					response.addHeader("Authorization", token);
+					response.addHeader("Authorization", Constant.JWT_SEPARATOR + token);
 					return new CommonResult(0000, appUser, "登陆成功");
 				}else {
 					return new CommonResult(1008, null, "密码错误");
